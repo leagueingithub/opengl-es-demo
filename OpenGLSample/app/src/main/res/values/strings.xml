@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">OpenGL Sample</string>
+
+    <string-array name="operas">
+        <item>三角形(TriangleRenderer)</item>
+        <item>Native绘制三角形(NativeTriangleRenderer)</item>
+        <item>Native带缓存顶点数组(Native with buffer and using vertex index)</item>
+    </string-array>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.league.king.openglsample.MainActivity">
+
+
+    <ListView
+        android:id="@+id/main_lv_opera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        >
+
+    </ListView>
+
+</RelativeLayout>
