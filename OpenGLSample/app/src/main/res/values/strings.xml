@@ -5,5 +5,7 @@
         <item>三角形(TriangleRenderer)</item>
         <item>Native绘制三角形(NativeTriangleRenderer)</item>
         <item>Native带缓存顶点数组(Native with buffer and using vertex index)</item>
+        <item>Native Mipmap2D纹理贴图(Native with Mipmap2D texture)</item>
+        <item>Native 粒子系统(Native ParticleSystem)</item>
     </string-array>
 </resources>

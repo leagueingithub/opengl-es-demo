@@ -28,7 +28,7 @@ model {
 //            toolchain = 'clang'
 //            stl = 'gnustl_static'
 //            cppFlags.addAll(['-std=c++11', '-Wall'])
-//            ldLibs.addAll(['log', 'GLESv3'])
+//            ldLibs.addAll(['log', 'GLESv3', "android", "z"])
 //        }
 //
 //        // Turn on hard float support in armeabi-v7a
