@@ -7,5 +7,7 @@
         <item>Native带缓存顶点数组(Native with buffer and using vertex index)</item>
         <item>Native Mipmap2D纹理贴图(Native with Mipmap2D texture)</item>
         <item>Native 粒子系统(Native ParticleSystem)</item>
+        <item>Native 带变换反馈的粒子系统(Native ParticleSystemTransformFeedback)</item>
+        <item>Native 纹理(Native texture)</item>
     </string-array>
 </resources>

@@ -10,6 +10,8 @@ import android.os.Bundle;
 import com.league.king.openglsample.native_renderer.NativeBufferTriangleRenderer;
 import com.league.king.openglsample.native_renderer.NativeMipMap2DRenderer;
 import com.league.king.openglsample.native_renderer.NativeParticleSystemRenderer;
+import com.league.king.openglsample.native_renderer.NativeParticleSystemTransformFeedBackRenderer;
+import com.league.king.openglsample.native_renderer.NativeTextureRenderer;
 import com.league.king.openglsample.native_renderer.NativeTriangleRenderer;
 import com.league.king.openglsample.renders.TriangleRenderer;
 
@@ -26,6 +28,8 @@ public class GLViewActivity extends Activity {
     private final static int RENDERER_NATIVE_BUFFER_TRIANGLE = 2;
     private final static int RENDERER_MIPMAP2D = 3;
     private final static int RENDERER_PARTICLE_SYSTEM = 4;
+    private final static int RENDERER_PARTICLE_SYSTEM_WITH_FEEDBACK = 5;
+    public final static int RENDERER_TEXTURE = 6;
 
     private GLSurfaceView   mGlSurfaceView;
     private int renderer;
@@ -86,6 +90,14 @@ public class GLViewActivity extends Activity {
                 }
                 case RENDERER_PARTICLE_SYSTEM: {
                     r = new NativeParticleSystemRenderer(this);
+                    break;
+                }
+                case RENDERER_PARTICLE_SYSTEM_WITH_FEEDBACK: {
+                    r = new NativeParticleSystemTransformFeedBackRenderer(this);
+                    break;
+                }
+                case RENDERER_TEXTURE: {
+                    r = new NativeTextureRenderer(this);
                     break;
                 }
             }
