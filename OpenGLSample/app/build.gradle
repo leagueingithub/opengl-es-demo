@@ -1,46 +1,64 @@
-apply plugin: 'com.android.model.application'
+apply plugin: 'com.android.application'
 
-model {
+android {
+    compileSdkVersion 25
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "com.league.king.openglsample"
+        minSdkVersion 17
+        targetSdkVersion 25
 
-    android {
-        compileSdkVersion = 23
-        buildToolsVersion = "23.0.3"
+        externalNativeBuild {
 
-        defaultConfig {
-            applicationId "com.league.king.openglsample"
-            minSdkVersion.apiLevel = 19
-            targetSdkVersion.apiLevel = 23
-            versionCode = 1
-            versionName = "1.0"
-        }
-
-
-        buildTypes {
-            release {
-                minifyEnabled = false
-                proguardFiles.add(file('proguard-android.txt'))
+            ndkBuild {
+                arguments "NDK_APPLICATION_MK:=src/main/jni/Application.mk"
             }
         }
-
-//        ndk {
-//            platformVersion = 19
-//            moduleName = 'bufferTriangleRenderer'
-//            toolchain = 'clang'
-//            stl = 'gnustl_static'
-//            cppFlags.addAll(['-std=c++11', '-Wall'])
-//            ldLibs.addAll(['log', 'GLESv3', "android", "z"])
-//        }
-//
-//        // Turn on hard float support in armeabi-v7a
-//        abis {
-//            create('armeabi-v7a') {
-//                cppFlags.addAll(['-mhard-float', '-D_NDK_MATH_NO_SOFTFP=1', '-mfloat-abi=hard'])
-//                ldLibs.add('m_hard')
-//                ldFlags.add('-Wl,--no-warn-mismatch')
-//            }
-//        }
     }
 
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = false
+            proguardFiles.add(file('proguard-android.txt'))
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/INDEX.LIST'
+        //butter knife need(http://jakewharton.github.io/butterknife/)
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+    dexOptions {
+        maxProcessCount 8
+        javaMaxHeapSize "4g"
+//       incremental true  //  Changes in Gradle 2.1.0-rc1 (2016/4/22) or later.                1. Remove deprecated dexOptions.incremental. Incremental Java compilation is ON by default.
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    sourceSets { main { jni.srcDirs = ['src/main/jni']} }
+
+    externalNativeBuild {
+
+        ndkBuild {
+            path "src/main/jni/Android.mk"
+        }
+    }
 }
 
 
@@ -49,4 +67,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
 }
+
+
 

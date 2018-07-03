@@ -9,5 +9,7 @@
         <item>Native 粒子系统(Native ParticleSystem)</item>
         <item>Native 带变换反馈的粒子系统(Native ParticleSystemTransformFeedback)</item>
         <item>Native 纹理(Native texture)</item>
+        <item>Native 变换(Native transforms)</item>
+        <item>Native 3d变换(transforms 3D)</item>
     </string-array>
 </resources>

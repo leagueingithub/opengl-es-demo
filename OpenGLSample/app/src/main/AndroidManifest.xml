@@ -23,6 +23,16 @@
 
         <activity android:name=".GLViewActivity"/>
         <activity android:name=".util.PermissionUtil$TitRequestPermissionActivity"/>
+
+        <activity
+            android:name=".LKNativeActivity"
+            android:configChanges="keyboardHidden|orientation">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="transform3d"
+                />
+        </activity>
+
     </application>
 
 </manifest>

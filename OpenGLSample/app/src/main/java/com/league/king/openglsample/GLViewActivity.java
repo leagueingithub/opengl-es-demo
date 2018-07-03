@@ -3,6 +3,7 @@ package com.league.king.openglsample;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ConfigurationInfo;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import com.league.king.openglsample.native_renderer.NativeMipMap2DRenderer;
 import com.league.king.openglsample.native_renderer.NativeParticleSystemRenderer;
 import com.league.king.openglsample.native_renderer.NativeParticleSystemTransformFeedBackRenderer;
 import com.league.king.openglsample.native_renderer.NativeTextureRenderer;
+import com.league.king.openglsample.native_renderer.NativeTransformationsRenderer;
 import com.league.king.openglsample.native_renderer.NativeTriangleRenderer;
 import com.league.king.openglsample.renders.TriangleRenderer;
 
@@ -30,6 +32,8 @@ public class GLViewActivity extends Activity {
     private final static int RENDERER_PARTICLE_SYSTEM = 4;
     private final static int RENDERER_PARTICLE_SYSTEM_WITH_FEEDBACK = 5;
     public final static int RENDERER_TEXTURE = 6;
+    public final static int RENDERER_TRANSFORM = 7;
+    public final static int TRANSFORM3D = 8;
 
     private GLSurfaceView   mGlSurfaceView;
     private int renderer;
@@ -99,6 +103,16 @@ public class GLViewActivity extends Activity {
                 case RENDERER_TEXTURE: {
                     r = new NativeTextureRenderer(this);
                     break;
+                }
+                case RENDERER_TRANSFORM: {
+                    r = new NativeTransformationsRenderer(this);
+                    break;
+                }
+                case TRANSFORM3D: {
+                    Intent intent = new Intent(this, LKNativeActivity.class);
+                    startActivity(intent);
+                    finish();
+                    return;
                 }
             }
             mGlSurfaceView.setRenderer(r);
